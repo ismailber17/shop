@@ -1,9 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
 
     const wilayaSelect = document.querySelector('#wilaya') ;
     const baladiyaSelect = document.querySelector('#commune');
 
-    const wilayas = {
+ export const wilayas = {
     "أدرار": [
         "أدرار", "تامست", "شروين", "رقان", "إن زغمير", "تيت", "قصر قدور", 
         "تسابيت", "تيميمون", "أولاد السعيد", "زاوية كونتة", "أولف", 
@@ -1570,4 +1569,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
     populateWilayas();
 
-});

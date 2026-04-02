@@ -1,73 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>إتمام الطلب</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <title>إتمام الطلب</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/checkout.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+  </head>
 
-<body>
+  <body>
+    <header class="top-header">
+      <div class="logo">Casa Gyps</div>
+      <a href="cart.html" class="btn-light">العودة للسلة</a>
+    </header>
 
-<header class="top-header">
-  <div class="logo">Casa Gyps</div>
-  <a href="cart.html" class="btn-light">العودة للسلة</a>
-</header>
+    <section class="checkout-page">
+      <!-- معلومات الزبون -->
+      <div class="checkout-form">
+        <h2>معلومات الزبون</h2>
 
-<section class="checkout-page">
+        <input type="text" id="name" placeholder="الاسم الكامل" />
+        <input type="tel" id="phone" placeholder="رقم الهاتف" />
 
-  <!-- معلومات الزبون -->
-  <div class="checkout-form">
-    <h2>معلومات الزبون</h2>
+        <!-- نوع التوصيل -->
+        <select id="deliveryType" onchange="handleDelivery()">
+          <option value="">اختر نوع التوصيل</option>
+          <option value="office">توصيل إلى المكتب</option>
+          <option value="home">توصيل إلى المنزل</option>
+        </select>
 
-    <input type="text" id="name" placeholder="الاسم الكامل">
-    <input type="tel" id="phone" placeholder="رقم الهاتف">
+        <!-- الولاية -->
+        <select id="wilaya" onchange="loadCommunes()">
+          <option value="">اختر الولاية</option>
+          <script>
+            wilayas.forEach((wilaya) => {
+              `      <option value="${wilaya}">${wilaya}</option>`;
+            });
+          </script>
+        </select>
 
-    <!-- نوع التوصيل -->
-    <select id="deliveryType" onchange="handleDelivery()">
-      <option value="">اختر نوع التوصيل</option>
-      <option value="office">توصيل إلى المكتب</option>
-      <option value="home">توصيل إلى المنزل</option>
-    </select>
+        <!-- البلدية -->
+        <select id="commune">
+          <option>اختر البلدية</option>
+        </select>
 
-    <!-- الولاية -->
-    <select id="wilaya" onchange="loadCommunes()">
-      <option value="">اختر الولاية</option>
-      <option value="31">وهران</option>
-      <option value="16">الجزائر</option>
-      <option value="25">قسنطينة</option>
-      <option value="19">سطيف</option>
-    </select>
+        <!-- العنوان -->
+        <input type="text" id="address" placeholder="العنوان الكامل" />
 
-    <!-- البلدية -->
-    <select id="commune">
-      <option>اختر البلدية</option>
-    </select>
+        <textarea id="note" placeholder="ملاحظة (اختياري)"></textarea>
+      </div>
 
-    <!-- العنوان -->
-    <input type="text" id="address" placeholder="العنوان الكامل">
+      <!-- ملخص الطلب -->
+      <div class="checkout-summary">
+        <h3>ملخص الطلب</h3>
 
-    <textarea id="note" placeholder="ملاحظة (اختياري)"></textarea>
-  </div>
+        <div id="orderItems"></div>
 
-  <!-- ملخص الطلب -->
-  <div class="checkout-summary">
-    <h3>ملخص الطلب</h3>
+        <p>المجموع: <span id="subtotal">0 دج</span></p>
+        <p>الشحن: <span id="shipping">0 دج</span></p>
+        <h3>الإجمالي: <span id="total">0 دج</span></h3>
 
-    <div id="orderItems"></div>
+        <button onclick="submitOrder()" class="btn-gold">تأكيد الطلب</button>
+      </div>
+    </section>
 
-    <p>المجموع: <span id="subtotal">0 دج</span></p>
-    <p>الشحن: <span id="shipping">0 دج</span></p>
-    <h3>الإجمالي: <span id="total">0 دج</span></h3>
-
-    <button onclick="submitOrder()" class="btn-gold">تأكيد الطلب</button>
-  </div>
-
-</section>
-
-<script src="js/checkout.js"></script>
-<script src="js/wilaya.js"></script>
-</body>
+    <script src="js/checkout.js"></script>
+    <script type="module" src="js/wilaya.js"></script>
+  </body>
 </html>
