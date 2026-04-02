@@ -30,11 +30,6 @@ CREATE TABLE IF NOT EXISTS products (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ";
 
-if ($conn->query($sql_products) === TRUE) {
-    echo "✅ جدول products جاهز<br>";
-} else {
-    echo "❌ خطأ في products: " . $conn->error . "<br>";
-}
 
 // ================================
 //  جدول الطلبات
@@ -56,11 +51,5 @@ CREATE TABLE IF NOT EXISTS orders (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ";
 
-if ($conn->query($sql_orders) === TRUE) {
-    echo "✅ جدول orders جاهز<br>";
-} else {
-    echo "❌ خطأ في orders: " . $conn->error . "<br>";
-}
 
-$conn->close();
 ?>

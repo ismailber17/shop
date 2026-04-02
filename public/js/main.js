@@ -11,7 +11,7 @@ if (!productsContainer) {
 
 // جلب المنتجات مرة واحدة فقط
 function fetchProducts() {
-  fetch("http://localhost/shop/get_products.php")
+  fetch("http://localhost/shopIsmail/shop/get_products.php")
     .then(res => res.json())
     .then(data => {
       products = data;

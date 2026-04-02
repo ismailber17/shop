@@ -1564,8 +1564,9 @@
         }
     }
 
-    function calculateShipping() {
+ function calculateShipping() {
     const shippingEl = document.querySelector("#shipping");
+    const totalEl = document.querySelector("#total");
 
     const selectedWilaya = wilayaSelect.value;
     const selectedType = deliveryTypeSelect.value;
@@ -1578,6 +1579,10 @@
     const price = deliveryPrices[selectedWilaya]?.[selectedType] || 0;
 
     shippingEl.textContent = price + " دج";
+
+    // حساب total (مثال)
+    const subtotal = parseInt(document.querySelector("#subtotal").textContent) || 0;
+    totalEl.textContent = (subtotal + price) + " دج";
 }
 
 populateWilayas();
@@ -1590,5 +1595,4 @@ populateWilayas();
 deliveryTypeSelect.addEventListener("change", calculateShipping);
 
 
-deliveryTypeSelect.addEventListener("change", calculateShipping);
 

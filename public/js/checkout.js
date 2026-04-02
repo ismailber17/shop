@@ -35,49 +35,6 @@ function updateTotal() {
   document.getElementById("total").innerText = (subtotal + shipping) + " دج";
 }
 
-// 🟢 اختيار نوع التوصيل
-function handleDelivery() {
-  deliveryType = document.getElementById("deliveryType").value;
-  loadCommunes();
-}
-
-// 🟢 جلب البلديات
-function loadCommunes() {
-  let wilayaId = document.getElementById("wilaya").value;
-
-  if (!wilayaId) return;
-
-  fetch(`http://localhost/shop/get_communes.php?wilaya_id=${wilayaId}`)
-    .then(res => res.json())
-    .then(data => {
-      let communeSelect = document.getElementById("commune");
-      communeSelect.innerHTML = "";
-
-      if (deliveryType === "office") {
-        communeSelect.innerHTML = `<option>مكتب الولاية</option>`;
-      } else {
-        data.forEach(c => {
-          communeSelect.innerHTML += `<option>${c.name}</option>`;
-        });
-      }
-
-      updateShipping();
-    });
-}
-
-// 🟢 جلب سعر الشحن
-function updateShipping() {
-  let wilayaId = document.getElementById("wilaya").value;
-
-  if (!wilayaId || !deliveryType) return;
-
-  fetch(`http://localhost/shop/get_shipping.php?wilaya_id=${wilayaId}&type=${deliveryType}`)
-    .then(res => res.json())
-    .then(data => {
-      shipping = Number(data.price) || 0;
-      updateTotal();
-    });
-}
 
 // 🟢 إرسال الطلب
 function submitOrder() {
