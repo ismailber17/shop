@@ -36,7 +36,7 @@ function renderCart() {
     `;
   });
 
-  let shipping = 1500;
+  let shipping = document.querySelector("#shipping").value;
 
   document.getElementById("subtotal").innerText = subtotal + " دج";
   document.getElementById("total").innerText = (subtotal + shipping) + " دج";
