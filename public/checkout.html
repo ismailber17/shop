@@ -24,25 +24,17 @@
         <input type="tel" id="phone" placeholder="رقم الهاتف" />
 
         <!-- نوع التوصيل -->
-        <select id="deliveryType" onchange="handleDelivery()">
-          <option value="">اختر نوع التوصيل</option>
+        <select id="deliveryType">
           <option value="office">توصيل إلى المكتب</option>
           <option value="home">توصيل إلى المنزل</option>
         </select>
 
         <!-- الولاية -->
-        <select id="wilaya" onchange="loadCommunes()">
-          <option value="">اختر الولاية</option>
-          <script>
-            wilayas.forEach((wilaya) => {
-              `      <option value="${wilaya}">${wilaya}</option>`;
-            });
-          </script>
+        <select id="wilaya">
         </select>
 
         <!-- البلدية -->
         <select id="commune">
-          <option>اختر البلدية</option>
         </select>
 
         <!-- العنوان -->
