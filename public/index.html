@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa Gyps</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/ban.jpg">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="top-header">
+    <div class="logo">Casa Gyps</div>
+
+    <nav class="main-nav">
+      <a href="#" class="active">الرئيسية</a>
+      <a href="#categories">المنتجات</a>
+      <a href="#featured">الأفضل</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+
+    <div class="header-icons">
+      <a href="cart.html" class="cart-link">🛒 <span id="cartCount">0</span></a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content reveal">
+        <h1>لمسة من الأناقة لمنزلك</h1>
+        <p>اكتشفي أجمل الديكورات والإكسسوارات العصرية من Casa Gyps</p>
+        <div class="hero-buttons">
+          <a href="#featured" class="btn btn-gold pulse">تسوق الآن</a>
+          <a href="#categories" class="btn btn-light">استكشف المنتجات</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories" id="categories">
+    <div class="section-title reveal">
+      <h2>تسوق حسب الفئة</h2>
+      <p>اختاري ما يناسب ذوقك</p>
+    </div>
+<div class="categories-grid">
+
+  <div class="category-card reveal" onclick="renderProducts('gypsum')">
+    <img src="images/cat1.jpg" alt="">
+    <div class="category-name">ديكور جبس</div>
+  </div>
+
+  <div class="category-card reveal" onclick="renderProducts('resin')">
+    <img src="images/cat2.jpg" alt="">
+    <div class="category-name">ديكور ريزين</div>
+  </div>
+
+  <div class="category-card reveal" onclick="renderProducts('epoxy')">
+    <img src="images/cat3.jpg" alt="">
+    <div class="category-name">ديكور ريزين ايبوكسي</div>
+  </div>
+
+</div>
+  </section>
+
+  <!-- Products -->
+  <section class="featured-products" id="featured">
+    <div class="section-title reveal">
+      <h2>أفضل المنتجات</h2>
+      <p>منتجات مختارة لك</p>
+    </div>
+
+    <div id="products" class="products-grid"></div>
+  </section>
+
+  <!-- Banner -->
+  <section class="promo-banner">
+    <div class="promo-content reveal">
+      <h2>عرض خاص اليوم</h2>
+      <p>خصومات على مجموعة مختارة من الديكور والإكسسوارات</p>
+      <a href="#featured" class="btn btn-gold">تسوق العرض</a>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="why-us">
+    <div class="section-title reveal">
+      <h2>لماذا Casa Gyps؟</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span>✨</span>
+        <h3>تصاميم راقية</h3>
+        <p>منتجات مختارة بعناية لتناسب الذوق العصري.</p>
+      </div>
+
+      <div class="why-card reveal">
+        <span>🚚</span>
+        <h3>توصيل سريع</h3>
+        <p>توصيل موثوق وآمن لطلباتك.</p>
+      </div>
+
+      <div class="why-card reveal">
+        <span>💳</span>
+        <h3>الدفع عند الاستلام</h3>
+        <p>اطلب براحتك وادفع عند وصول المنتج.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div>
+      <h3>Casa Gyps</h3>
+      <p>ديكور وإكسسوارات بلمسة عصرية.</p>
+    </div>
+
+    <div>
+      <h4>روابط</h4>
+      <a href="#">الرئيسية</a>
+      <a href="#categories">الفئات</a>
+      <a href="#featured">المنتجات</a>
+    </div>
+
+    <div>
+      <h4>تواصل</h4>
+      <p>الهاتف: 07 94 12 93 94</p>
+      <p>البريد: contact@casagyps.com</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

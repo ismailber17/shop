@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>إتمام الطلب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+
+<header class="top-header">
+  <div class="logo">Casa Gyps</div>
+  <a href="cart.html" class="btn-light">العودة للسلة</a>
+</header>
+
+<section class="checkout-page">
+
+  <!-- معلومات الزبون -->
+  <div class="checkout-form">
+    <h2>معلومات الزبون</h2>
+
+    <input type="text" id="name" placeholder="الاسم الكامل">
+    <input type="tel" id="phone" placeholder="رقم الهاتف">
+
+    <!-- نوع التوصيل -->
+    <select id="deliveryType" onchange="handleDelivery()">
+      <option value="">اختر نوع التوصيل</option>
+      <option value="office">توصيل إلى المكتب</option>
+      <option value="home">توصيل إلى المنزل</option>
+    </select>
+
+    <!-- الولاية -->
+    <select id="wilaya" onchange="loadCommunes()">
+      <option value="">اختر الولاية</option>
+      <option value="31">وهران</option>
+      <option value="16">الجزائر</option>
+      <option value="25">قسنطينة</option>
+      <option value="19">سطيف</option>
+    </select>
+
+    <!-- البلدية -->
+    <select id="commune">
+      <option>اختر البلدية</option>
+    </select>
+
+    <!-- العنوان -->
+    <input type="text" id="address" placeholder="العنوان الكامل">
+
+    <textarea id="note" placeholder="ملاحظة (اختياري)"></textarea>
+  </div>
+
+  <!-- ملخص الطلب -->
+  <div class="checkout-summary">
+    <h3>ملخص الطلب</h3>
+
+    <div id="orderItems"></div>
+
+    <p>المجموع: <span id="subtotal">0 دج</span></p>
+    <p>الشحن: <span id="shipping">0 دج</span></p>
+    <h3>الإجمالي: <span id="total">0 دج</span></h3>
+
+    <button onclick="submitOrder()" class="btn-gold">تأكيد الطلب</button>
+  </div>
+
+</section>
+
+<script src="js/checkout.js"></script>
+</body>
+</html>
