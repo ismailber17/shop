@@ -3,11 +3,12 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 function renderCart() {
   let cartItemsDiv = document.getElementById("cartItems");
   let subtotal = 0;
+  let shippingEl = document.querySelector("#shipping");
+  let shipping = shippingEl ? Number(shippingEl.value) : 0;
 
   cartItemsDiv.innerHTML = "";
 
   cart.forEach((item, index) => {
-
     let price = Number(item.price.toString().replace(/[^\d]/g, ""));
     let quantity = Number(item.quantity) || 1;
 
@@ -36,21 +37,22 @@ function renderCart() {
     `;
   });
 
-  let shipping = document.querySelector("#shipping").value;
-
   document.getElementById("subtotal").innerText = subtotal + " دج";
-  document.getElementById("total").innerText = (subtotal + shipping) + " دج";
+  document.getElementById("total").innerText = subtotal + shipping + " دج";
 
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 // 🟢 تعديل الكمية
 function changeQty(index, change) {
+  let shippingEl = document.querySelector("#shipping");
+  let shipping = shippingEl ? Number(shippingEl.value) : 0;
   cart[index].quantity = (Number(cart[index].quantity) || 1) + change;
 
   if (cart[index].quantity <= 0) {
     cart.splice(index, 1);
   }
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   renderCart();
 }
@@ -63,3 +65,5 @@ function removeItem(index) {
 
 // تشغيل
 renderCart();
+
+console.log(cart);

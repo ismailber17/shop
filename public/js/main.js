@@ -12,25 +12,23 @@ if (!productsContainer) {
 // جلب المنتجات مرة واحدة فقط
 function fetchProducts() {
   fetch("http://localhost/shopIsmail/shop/get_products.php")
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       products = data;
       renderProducts();
       updateCartCount();
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("❌ خطأ في جلب المنتجات:", err);
     });
 }
 
 function renderProducts() {
-
   if (!productsContainer) return;
 
   productsContainer.innerHTML = "";
 
-  products.forEach(p => {
-
+  products.forEach((p) => {
     const div = document.createElement("div");
     div.className = "product-card";
 
@@ -42,7 +40,6 @@ function renderProducts() {
     `;
 
     productsContainer.appendChild(div);
-
   });
 }
 
@@ -50,7 +47,7 @@ function addToCart(id) {
   console.log("🟡 id:", id);
   console.log("📦 products:", products);
 
-  const product = products.find(p => Number(p.id) === Number(id));
+  const product = products.find((p) => Number(p.id) === Number(id));
 
   console.log("🟢 product:", product);
 
@@ -59,7 +56,7 @@ function addToCart(id) {
     return;
   }
 
-  const existing = cart.find(item => Number(item.id) === Number(id));
+  const existing = cart.find((item) => Number(item.id) === Number(id));
 
   if (existing) {
     existing.quantity++;
@@ -87,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchProducts();
   updateCartCount();
 
-  document.querySelectorAll('.fade-up').forEach(el => {
-    el.classList.add('show');
+  document.querySelectorAll(".fade-up").forEach((el) => {
+    el.classList.add("show");
   });
 
   const loader = document.getElementById("loader");
@@ -98,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function revealOnScroll() {
   const elements = document.querySelectorAll(".reveal");
 
-  elements.forEach(el => {
+  elements.forEach((el) => {
     const windowHeight = window.innerHeight;
     const elementTop = el.getBoundingClientRect().top;
 
@@ -111,15 +108,14 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 
 function renderProducts(category = "all") {
-
   productsContainer.innerHTML = "";
 
-  let filtered = category === "all"
-    ? products
-    : products.filter(p => p.category === category);
+  let filtered =
+    category === "all"
+      ? products
+      : products.filter((p) => p.category === category);
 
-  filtered.forEach(p => {
-
+  filtered.forEach((p) => {
     const div = document.createElement("div");
 
     div.className = "product-card";

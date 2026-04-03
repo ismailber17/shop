@@ -81,3 +81,5 @@ function submitOrder() {
 
 // 🟢 تشغيل
 renderOrder();
+
+console.log(cart);
