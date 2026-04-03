@@ -406,7 +406,11 @@ html {
 }
 
 @keyframes fadeUp {
-  to {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -491,7 +495,9 @@ html {
 .hero-content {
   position: relative;
   z-index: 2;
-  animation: fadeUp 1s ease;
+  opacity: 0; 
+  animation: fadeUp 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+  animation-delay: 0.3s; 
 }
 
 .hero-content h1 {
